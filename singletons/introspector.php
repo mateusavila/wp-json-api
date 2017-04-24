@@ -15,7 +15,11 @@ class JSON_API_Introspector {
       }
       $output[] = $new_post;
     }
-    return $output;
+    return array(
+      'posts' => $output,
+      'count_total' => (int) $wp_query->found_posts,
+      'count'=> count($output)
+    );
   }
   
   public function get_date_archive_permalinks() {
